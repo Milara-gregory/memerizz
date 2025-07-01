@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meme Rizz | Shop</title>
+  <style>
+    body {
+      margin: 0;
+      font-family:Georgia, 'Times New Roman', Times, serif, sans-serif;
+      background-color: #fdfdfd;
+      color: #1a1a1a;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    header nav a {
+      margin-left: 1rem;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: opacity 0.3s;
+    }
+
+    header nav a:hover {
+      opacity: 0.7;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #fafafa;
+      color: #000;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero a {
+      padding: 0.8rem 1.5rem;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .hero a:hover {
+      background-color: #333;
+    }
+
+    .gallery-nav-wrapper {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .gallery-nav-wrapper p {
+      font-size: 1rem;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-nav button {
+      padding: 0.6rem 1.2rem;
+      border: 1px solid #000;
+      background-color: transparent;
+      color: #000;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-nav button:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .gallery-box {
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: white;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-box img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .gallery-box h4 {
+      margin: 0.8rem 0 0.3rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .gallery-box p {
+      margin: 0.2rem 0;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .buy-button {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #1a1a1a;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .buy-button:hover {
+      background-color: #000;
+    }
+
+    .coming-soon {
+      padding: 3rem 2rem;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+
+    .coming-soon h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .socials a {
+      display: inline-block;
+      margin: 0.5rem 1rem;
+      font-size: 1.1rem;
+      color: #000;
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      background-color: #000;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Meme Rizz</h1>
+    <nav>
+      <a href="#aboutus">About Us</a>
+
+      <a href="#comingsoon">Order</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Lowkey Loud.</h2>
+    <p>Sri Lanka's First Ever Premium Meme-Based Clothing Store</p>
+    <a href="#comingsoon">HOW TO ORDER</a> <br>
+    <img src="Main.png" style="margin-top: 20px; max-width: 90%; border-radius: 12px;" />
+  </section>
+
+  <div class="gallery-nav-wrapper" id="Collections">
+    <p>Click to view the designs</p>
+    <div class="gallery-nav">
+      <button onclick="showGalleryPage(1)">College Edition</button>
+      <button onclick="showGalleryPage(2)">Special Edition </button>
+      <button onclick="showGalleryPage(3)">Silent Syntax</button>
+      
+    </div>
+  </div>
+
+  <section id="gallery" class="gallery"></section>
+<section id="aboutus" class="coming-soon" style="background-color: #e1dbdb;">
+  <h3>About Us</h3>
+  <p style="font-size: larger;">Awww! You wanna know about us? So sweet! </p>
+    <p style="text-align: justify;  line-height: 1cm;"> Lemme Quickly explain about us. Meme Rizz is Sri Lanka’s first premium meme-based clothing store, built to blend humor with high quality oversized fits for Gen Z. We make sure that Each fit you wear brings out a smile from someone who sees it.
+      At the Same time, we ensure the Quality of the Material so that it lasts long and feels Comfy! 
+      Your Feedbacks Means alot to us! so Feel free to Share it with us. Feel free to Mention us Whenever you Post a Story with our Fits!
+
+  </p>
+  <a href="#Collections" class="buy-button" style="margin-top: 1.5rem; display: inline-block;">Go to Collections</a>
+</section>
+  <section id="comingsoon" class="coming-soon">
+    <h3> By the way this Website is Under Construction </h3>
+    <p  style="text-align: justify; line-height: 1cm;"> We are building something exciting. For now, Click on your Favourite Design , and it will Lead to our Whatsapp DM. You can also DM us on Instagram or TikTok to place your order.</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/memerizz.lk/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@memerizz.lk" target="_blank">TikTok</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; Meme Rizz. All rights reserved.
+  </footer>
+
+  <script>
+    const gallery = document.getElementById("gallery");
+
+    const pages = [
+      // college
+      [
+        {
+          src: "1.png",
+          alt: "HITshappens Design",
+          name: "CHAT GPT for Life",
+          price: "Rs. 1,699",
+          description: "Print on the Back, Just for your Peers"
+        },
+        {
+          src: "2.png",
+          alt: "Attendance",
+          name: " Cause Attendance Matters",
+          price: "Rs. 1,699",
+          description: "Print on the Back, So you don't get Caught"
+        },
+        {
+          src: "3.png",
+          alt: "Memory",
+          name: "Outstanding Student",
+          price: "Rs. 1,699",
+          description: " Felt cute, might cut the lecture later"
+        },
+        {
+          src: "4.png",
+          alt: "Memory",
+          name: "Just Vibes",
+          price: "Rs. 1,699",
+          description: " Don't wanna miss the best time of life"
+        },
+        {
+          src: "5.png",
+          alt: "Memory",
+          name: "Night Owl Edition",
+          price: "Rs. 1,699",
+          description: " Favor to the back benchers "
+        },
+        {
+          src: "6.png",
+          alt: "Memory",
+          name: "The Roast",
+          price: "Rs. 1,699",
+          description: " Works well in Group photos"
+        }
+      ],
+      // SPECIAL
+      [
+        {
+          src: "calm.png",
+          alt: "Design 4",
+          name: "Printed Fyp",
+          price: "Rs. 2,299",
+          description: "Chill"
+        },
+        {
+          src: "ijustcant.png",
+          alt: "Design 4",
+          name: "Sike",
+          price: "Rs. 2,299",
+          description: "if you know you know"
+        },
+        
+        {
+          src: "pain.png",
+          alt: "Design 4",
+          name: "Pain Hub",
+          price: "Rs. 2,299",
+          description: "it is what it is"
+        },
+
+        {
+          src: "Harry.png",
+          alt: "Design 5",
+          name: " Wingardium Leviosa ",
+          price: "Rs. 2,399",
+          description: "For Potter heads"
+        },
+        {
+          src: "panther.png",
+          alt: "Design 6",
+          name: "Black panther",
+          price: "Rs. 2,399",
+          description: "Finally Showed up"
+        },
+
+        {
+          src: "where.png",
+          alt: "Design 6",
+          name: "The Trio Edition #1",
+          price: "Rs. 2,299",
+          description: "Finally Showed up"
+        },
+        {
+          src: "why.png",
+          alt: "why gamora",
+          name: "The Trio Edition #2",
+          price: "Rs. 2,299",
+          description: "Finally Showed up"
+        },
+        {
+          src: "who.png",
+          alt: "gamora",
+          name: "The Trio Edition #3",
+          price: "Rs. 2,299",
+          description: "but just be cool about it"
+        },
+      ],
+      // silent syntax
+      [
+         {
+          src: "hitshappens.png",
+          alt: "hit shappens",
+          name: "it Happens",
+          price: "Rs. 2,399",
+          description: "Can't Help"
+        },
+        {
+          src: "shuhduh.png",
+          alt: "Shut it",
+          name: "Shut it",
+          price: "Rs. 2,399",
+          description: "Slay in Slang"
+        },
+        {
+          src: "Saregama.png",
+          alt: "Design 9",
+          name: "Music Rizz",
+          price: "Rs. 2,399",
+          description: "Could even be your Band's Tag line"
+        },
+        {
+          src: "sper.png",
+          alt: "Shut it",
+          name: "Nostalgia",
+          price: "Rs. 2,399",
+          description: "I was the fastest you know..."
+        },
+        {
+          src: "abcdefu.png",
+          alt: "Shut it",
+          name: "Alphabet? Meh",
+          price: "Rs. 2,399",
+          description: "Slay in Slang"
+        }
+        ,
+        {
+          src: "cool.png",
+          alt: "aintisocool",
+          name: "I am tho",
+          price: "Rs. 2,399",
+          description: "Elevate your closet"
+        }
+      ]
+    ];
+
+    function showGalleryPage(pageNumber) {
+      gallery.innerHTML = "";
+      pages[pageNumber - 1].forEach(item => {
+        const box = document.createElement("div");
+        box.className = "gallery-box";
+        const imgURL = location.href.replace(/\/[^/]*$/, '/') + item.src;
+        box.innerHTML = `
+          <img src="${item.src}" alt="${item.alt}">
+          <h4>${item.name}</h4>
+          <p>${item.description}</p>
+          <p><strong>${item.price}</strong></p>
+          <a class="buy-button"
+             href="https://wa.me/94724868655?text=Hi! I'm interested in buying the '${encodeURIComponent(item.name)}'.%0AHere is the design I picked: ${encodeURIComponent(imgURL)}"
+             target="_blank">
+            Buy Now
+          </a>
+        `;
+        gallery.appendChild(box);
+      });
+    }
+  </script>
+
+</body>
+</html>
