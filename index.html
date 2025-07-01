@@ -111,7 +111,10 @@
       background-color: #000;
       color: #fff;
     }
-
+.gallery-nav button.active {
+  background-color: #000;
+  color: #fff;
+}
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -170,7 +173,7 @@
     .coming-soon {
       padding: 3rem 2rem;
       text-align: center;
-      background-color: #f9f9f9;
+      background-color: #c7c2c2;
     }
 
     .coming-soon h3 {
@@ -203,7 +206,6 @@
     <nav>
       <a href="#aboutus">About us</a>
       <a href="#Collections">Collections</a>
-      <a href="#comingsoon">Order</a>
     </nav>
   </header>
 
@@ -230,7 +232,8 @@
   <p style="font-size: larger;">Awww! You wanna know about us? So sweet! </p>
     <p style="text-align: justify;  line-height: 1cm;"> Lemme Quickly explain about us. Meme Rizz is Sri Lanka’s first premium meme-based clothing store, built to blend humor with high quality oversized fits for Gen Z. We make sure that Each fit you wear brings out a smile from someone who sees it.
       At the Same time, we ensure the Quality of the Material so that it lasts long and feels Comfy!
-
+</section> 
+<section class="coming-soon"  id="Collections">
   </p> <p> Click the Button below to Explore the Collection & Click "Buy Now" to Order! </p>
   <a href="#Collections" class="buy-button" style="margin-top: 1.5rem; display: inline-block;">Go to Collections</a>
 </section>
@@ -267,8 +270,8 @@
 
 
   <section id="comingsoon" class="coming-soon">
-    <h3> By the way, this Website is Under Construction </h3>
-    <p  style="text-align: justify; line-height: 1cm;"> We are building something exciting. For now, Click on your Favourite Design , and it will Lead to our Whatsapp DM. You can also DM us on Instagram or TikTok to place your order.</p>
+    <h3> How to Order?</h3>
+    <p  style=" line-height: 1cm;"> At the Moment you cannot Make Purchases through our Website, We are still building something exciting. For now, Click on your Favourite Design , and it will Lead to our Whatsapp DM. You can also DM us on Instagram or TikTok to place your order.</p>
     <div class="socials">
       <a href="https://www.instagram.com/memerizz.lk/" target="_blank">Instagram</a>
       <a href="https://www.tiktok.com/@memerizz.lk" target="_blank">TikTok</a>
@@ -526,28 +529,52 @@
       ]
     ];
 
-    function showGalleryPage(pageNumber) {
-      gallery.innerHTML = "";
-      pages[pageNumber - 1].forEach(item => {
-        const box = document.createElement("div");
-        box.className = "gallery-box";
-        const imgURL = location.href.replace(/\/[^/]*$/, '/') + item.src;
-        box.innerHTML = `
-          <img src="${item.src}" alt="${item.alt}">
-          <h4>${item.name}</h4>
-          <p>${item.description}</p>
-          <p><strong>${item.price}</strong></p>
-          <a class="buy-button"
-             href="https://wa.me/94724868655?text=Hi! I'm interested in buying the '${encodeURIComponent(item.name)}'.%0AHere is the design I picked: ${encodeURIComponent(imgURL)}"
-             target="_blank">
-            Buy Now
-          </a>
-        `;
-        gallery.appendChild(box);
-      });
-    }
+   function showGalleryPage(pageNumber) {
+  // Remove 'active' class from all buttons
+  document.querySelectorAll('.gallery-nav button').forEach(btn => btn.classList.remove('active'));
 
-    
+  // Add 'active' class to the selected button
+  document.querySelectorAll('.gallery-nav button')[pageNumber - 1].classList.add('active');
+
+  gallery.innerHTML = "";
+
+  // Loop through and create gallery items
+  pages[pageNumber - 1].forEach(item => {
+    const box = document.createElement("div");
+    box.className = "gallery-box";
+    const imgURL = location.href.replace(/\/[^/]*$/, '/') + item.src;
+    box.innerHTML = `
+      <img src="${item.src}" alt="${item.alt}">
+      <h4>${item.name}</h4>
+      <p>${item.description}</p>
+      <p><strong>${item.price}</strong></p>
+      <a class="buy-button"
+         href="https://wa.me/94724868655?text=Hi! I'm interested in buying the '${encodeURIComponent(item.name)}'.%0AHere is the design I picked: ${encodeURIComponent(imgURL)}"
+         target="_blank">
+        Buy Now
+      </a>
+    `;
+    gallery.appendChild(box);
+  });
+
+  // Add "Next Collection" button if there is a next page
+  if (pageNumber < pages.length) {
+    const nextButton = document.createElement("div");
+    nextButton.style.textAlign = "center";
+    nextButton.innerHTML = `
+      <button class="buy-button" style="margin-top: 2rem;" onclick="showGalleryPage(${pageNumber + 1})">
+        View Next Collection →
+      </button>
+    `;
+    gallery.appendChild(nextButton);
+  }
+  document.getElementById("gallery").scrollIntoView({ behavior: "smooth" });
+
+}
+
+
+    showGalleryPage(1); // Load College Edition by default
+
   </script>
 <script type="application/ld+json">
   {
